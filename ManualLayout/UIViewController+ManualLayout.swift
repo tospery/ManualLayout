@@ -8,55 +8,86 @@
 
 import UIKit
 
-public extension UIViewController {
+extension UIViewController {
 
-  public var bounds: CGRect {
-    return view.bounds
-  }
+    public var ml_bounds: CGRect {
+        return view.bounds
+    }
+    public var bounds: CGRect {
+        return ml_bounds
+    }
 
-  // MARK: - Center
+    // MARK: - Center
+    public var ml_center: CGPoint {
+        return view.center
+    }
+    public var center: CGPoint {
+        return ml_center
+    }
 
-  public var center: CGPoint {
-    return view.center
-  }
+    public var ml_centerX: CGFloat {
+        return view.ml_centerX
+    }
+    public var centerX: CGFloat {
+        return ml_centerX
+    }
 
-  public var centerX: CGFloat {
-    return view.centerX
-  }
+    public var ml_centerY: CGFloat {
+        return view.ml_centerY
+    }
+    public var centerY: CGFloat {
+        return ml_centerY
+    }
 
-  public var centerY: CGFloat {
-    return view.centerY
-  }
+    // MARK: - Size
+    public var ml_size: CGSize {
+        return view.ml_size
+    }
+    public var size: CGSize {
+        return ml_size
+    }
 
-  // MARK: - Size
+    public var ml_width: CGFloat {
+        return view.ml_width
+    }
+    public var width: CGFloat {
+        return ml_width
+    }
 
-  public var size: CGSize {
-    return view.size
-  }
+    public var ml_height: CGFloat {
+        return view.ml_height
+    }
+    public var height: CGFloat {
+        return ml_height
+    }
 
-  public var width: CGFloat {
-    return view.width
-  }
+    // MARK: - Edges
+    public var ml_top: CGFloat {
+        return topLayoutGuide.length
+    }
+    public var top: CGFloat {
+        return ml_top
+    }
 
-  public var height: CGFloat {
-    return view.height
-  }
+    public var ml_right: CGFloat {
+        return view.ml_width
+    }
+    public var right: CGFloat {
+        return ml_right
+    }
 
-  // MARK: - Edges
+    public var ml_bottom: CGFloat {
+        return view.ml_height - bottomLayoutGuide.length
+    }
+    public var bottom: CGFloat {
+        return ml_bottom
+    }
 
-  public var top: CGFloat {
-    return topLayoutGuide.length
-  }
-
-  public var right: CGFloat {
-    return view.width
-  }
-
-  public var bottom: CGFloat {
-    return view.height - bottomLayoutGuide.length
-  }
-
-  public var left: CGFloat {
-    return 0
-  }
+    public var ml_left: CGFloat {
+        return 0
+    }
+    public var left: CGFloat {
+        return ml_left
+    }
+    
 }
