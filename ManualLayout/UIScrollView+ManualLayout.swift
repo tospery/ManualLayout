@@ -8,91 +8,95 @@
 
 import UIKit
 
-public extension UIScrollView {
+extension UIScrollView {
 
-  // MARK: - Content Size
+    // MARK: - Content Size
+    public var ml_contentWidth: CGFloat {
+        get { return contentSize.width }
+        set { contentSize.width = snapToPixel(pointCoordinate: newValue) }
+    }
+    public var contentWidth: CGFloat {
+        get { return ml_contentWidth }
+        set { ml_contentWidth = newValue }
+    }
 
-  public var contentWidth: CGFloat {
-    get {
-      return contentSize.width
+    public var ml_contentHeight: CGFloat {
+        get { return contentSize.height }
+        set { contentSize.height = snapToPixel(pointCoordinate: newValue) }
     }
-    set {
-      contentSize.width = snapToPixel(pointCoordinate: newValue)
+    public var contentHeight: CGFloat {
+        get { return ml_contentHeight }
+        set { ml_contentHeight = newValue }
     }
-  }
 
-  public var contentHeight: CGFloat {
-    get {
-      return contentSize.height
+    // MARK: - Content Edges (For Convenience)
+    public var ml_contentTop: CGFloat {
+        return 0
     }
-    set {
-      contentSize.height = snapToPixel(pointCoordinate: newValue)
+    public var contentTop: CGFloat {
+        return ml_contentTop
     }
-  }
 
-  // MARK: - Content Edges (For Convenience)
+    public var ml_contentLeft: CGFloat {
+        return 0
+    }
+    public var contentLeft: CGFloat {
+        return ml_contentLeft
+    }
 
-  public var contentTop: CGFloat {
-    return 0
-  }
+    public var ml_contentBottom: CGFloat {
+        get { return ml_contentHeight }
+        set { ml_contentHeight = newValue }
+    }
+    public var contentBottom: CGFloat {
+        get { return ml_contentBottom }
+        set { ml_contentBottom = newValue }
+    }
 
-  public var contentLeft: CGFloat {
-    return 0
-  }
+    public var ml_contentRight: CGFloat {
+        get { return ml_contentWidth }
+        set { ml_contentWidth = newValue }
+    }
+    public var contentRight: CGFloat {
+        get { return ml_contentRight }
+        set { ml_contentRight = newValue }
+    }
 
-  public var contentBottom: CGFloat {
-    get {
-      return contentHeight
+    // MARK: - Viewport Edges
+    public var ml_viewportTop: CGFloat {
+        get { return contentOffset.y }
+        set { contentOffset.y = snapToPixel(pointCoordinate: newValue) }
     }
-    set {
-      contentHeight = newValue
+    public var viewportTop: CGFloat {
+        get { return ml_viewportTop }
+        set { ml_viewportTop = newValue }
     }
-  }
 
-  public var contentRight: CGFloat {
-    get {
-      return contentWidth
+    public var ml_viewportLeft: CGFloat {
+        get { return contentOffset.x }
+        set { contentOffset.x = snapToPixel(pointCoordinate: newValue) }
     }
-    set {
-      contentWidth = newValue
+    public var viewportLeft: CGFloat {
+        get { return ml_viewportLeft }
+        set { ml_viewportLeft = newValue }
     }
-  }
 
-  // MARK: - Viewport Edges
+    public var ml_viewportBottom: CGFloat {
+        get { return contentOffset.y + ml_height }
+        set { contentOffset.y = snapToPixel(pointCoordinate: newValue - ml_height) }
+    }
+    public var viewportBottom: CGFloat {
+        get { return ml_viewportBottom }
+        set { ml_viewportBottom = newValue }
+    }
 
-  public var viewportTop: CGFloat {
-    get {
-      return contentOffset.y
+    public var ml_viewportRight: CGFloat {
+        get { return contentOffset.x + width }
+        set { contentOffset.x = snapToPixel(pointCoordinate: newValue - ml_width) }
     }
-    set {
-      contentOffset.y = snapToPixel(pointCoordinate: newValue)
+    public var viewportRight: CGFloat {
+        get { return ml_viewportRight }
+        set { ml_viewportRight = newValue }
     }
-  }
-
-  public var viewportLeft: CGFloat {
-    get {
-      return contentOffset.x
-    }
-    set {
-      contentOffset.x = snapToPixel(pointCoordinate: newValue)
-    }
-  }
-
-  public var viewportBottom: CGFloat {
-    get {
-      return contentOffset.y + height
-    }
-    set {
-      contentOffset.y = snapToPixel(pointCoordinate: newValue - height)
-    }
-  }
-
-  public var viewportRight: CGFloat {
-    get {
-      return contentOffset.x + width
-    }
-    set {
-      contentOffset.x = snapToPixel(pointCoordinate: newValue - width)
-    }
-  }
+    
 }
