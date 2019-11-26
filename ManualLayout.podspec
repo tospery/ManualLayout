@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'ManualLayout'
-  s.version = '1.3.0-jx2'
+  s.version = '1.3.0-jx3'
   s.license = { :type => 'MIT', :file => 'LICENSE' }
   s.summary = 'Easy to use and flexible AutoLayout alternative for iOS 8+. Supports AsyncDisplayKit.'
 
@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.source_files = 'ManualLayout'
   s.frameworks = 'UIKit'
   s.requires_arc = true
+  s.swift_version = "5.0"
 end
